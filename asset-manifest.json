@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/CombineNumbers/static/css/main.5e5f38ef.css",
+    "main.js": "/CombineNumbers/static/js/main.48aae6ba.js",
+    "static/media/addition-image.png": "/CombineNumbers/static/media/addition-image.2bc55c15cc577a85b5f8.png",
+    "static/media/easy-image.png": "/CombineNumbers/static/media/easy-image.3b8144d6143256422923.png",
+    "static/media/hard-image.png": "/CombineNumbers/static/media/hard-image.68963b62c14a7f18eb27.png",
+    "static/media/multiplication-image.png": "/CombineNumbers/static/media/multiplication-image.67242a253f943c304375.png",
+    "static/media/medium-image.png": "/CombineNumbers/static/media/medium-image.f18b2556a5faf930b4c3.png",
+    "static/media/logo.svg": "/CombineNumbers/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/CombineNumbers/index.html",
+    "main.5e5f38ef.css.map": "/CombineNumbers/static/css/main.5e5f38ef.css.map",
+    "main.48aae6ba.js.map": "/CombineNumbers/static/js/main.48aae6ba.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5e5f38ef.css",
+    "static/js/main.48aae6ba.js"
+  ]
+}
