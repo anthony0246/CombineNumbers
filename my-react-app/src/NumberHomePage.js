@@ -1,3 +1,5 @@
+// src/components/NumberHomePage.js
+
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -36,15 +38,23 @@ function NumberHomePage() {
           autoClose: 3000,
         });
       }
-
-      // Clear the state so the toast doesn't show again on refresh
       navigate(location.pathname, { replace: true });
     }
   }, [location, navigate]);
 
   const modes = [
-    { key: 'addition', title: 'Addition', img: additionImg, desc: 'Combine numbers to match the target sum in this engaging memory game.' },
-    { key: 'multiplication', title: 'Multiplication', img: multiplyImg, desc: 'Multiply numbers to hit the target product and test your math skills.' }
+    {
+      key: 'addition',
+      title: 'Addition',
+      img: additionImg,
+      desc: 'Combine numbers to match the target sum in this engaging memory game.'
+    },
+    {
+      key: 'multiplication',
+      title: 'Multiplication',
+      img: multiplyImg,
+      desc: 'Multiply numbers to hit the target product and test your math skills.'
+    }
   ];
 
   const levels = [
@@ -65,20 +75,25 @@ function NumberHomePage() {
         <h2 className="section-title" id="game-mode-section">Select Game Mode</h2>
         <Row className="gy-4 mb-5 animate-section">
           {modes.map(mode => (
-            <Col key={mode.key} xs={12} md={6}>
+            <Col key={mode.key} xs={12} md={6} className="d-flex">
               <Card
-                className={`neon-card ${selectedMode === mode.key ? 'selected' : ''}`}
+                className={`neon-card h-100 flex-fill ${selectedMode === mode.key ? 'selected' : ''}`}
                 onClick={() => setSelectedMode(mode.key)}
                 role="button"
                 tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && setSelectedMode(mode.key)}
+                onKeyDown={e => e.key === 'Enter' && setSelectedMode(mode.key)}
                 aria-pressed={selectedMode === mode.key}
                 aria-label={`Select ${mode.title} mode`}
               >
-                <Card.Img variant="top" className="card-img" src={mode.img} alt={`${mode.title} mode illustration`} />
+                <Card.Img
+                  variant="top"
+                  className="card-img"
+                  src={mode.img}
+                  alt={`${mode.title} mode illustration`}
+                />
                 <Card.Body className="d-flex flex-column">
                   <Card.Title className="neon-title">{mode.title}</Card.Title>
-                  <Card.Text className="card-desc">{mode.desc}</Card.Text>
+                  <Card.Text className="card-desc flex-grow-1">{mode.desc}</Card.Text>
                   <Button
                     variant={selectedMode === mode.key ? 'glow' : 'outline-glow'}
                     className="mt-auto neon-button"
@@ -96,20 +111,25 @@ function NumberHomePage() {
         <h2 className="section-title" id="difficulty-section">Select Difficulty</h2>
         <Row className="gy-4 mb-5 animate-section">
           {levels.map(level => (
-            <Col key={level.key} xs={12} md={4}>
+            <Col key={level.key} xs={12} md={4} className="d-flex">
               <Card
-                className={`neon-card ${selectedDifficulty === level.key ? 'selected' : ''}`}
+                className={`neon-card h-100 flex-fill ${selectedDifficulty === level.key ? 'selected' : ''}`}
                 onClick={() => setSelectedDifficulty(level.key)}
                 role="button"
                 tabIndex={0}
-                onKeyDown={(e) => e.key === 'Enter' && setSelectedDifficulty(level.key)}
+                onKeyDown={e => e.key === 'Enter' && setSelectedDifficulty(level.key)}
                 aria-pressed={selectedDifficulty === level.key}
                 aria-label={`Select ${level.title} difficulty`}
               >
-                <Card.Img variant="top" className="card-img" src={level.img} alt={`${level.title} difficulty illustration`} />
+                <Card.Img
+                  variant="top"
+                  className="card-img"
+                  src={level.img}
+                  alt={`${level.title} difficulty illustration`}
+                />
                 <Card.Body className="d-flex flex-column">
                   <Card.Title className="neon-title">{level.title}</Card.Title>
-                  <Card.Text className="card-desc">{level.desc}</Card.Text>
+                  <Card.Text className="card-desc flex-grow-1">{level.desc}</Card.Text>
                   <Button
                     variant={selectedDifficulty === level.key ? 'glow' : 'outline-glow'}
                     className="mt-auto neon-button"
@@ -124,7 +144,7 @@ function NumberHomePage() {
           ))}
         </Row>
 
-        <div className="text-center mt-5 ">
+        <div className="text-center mt-5">
           <Link to={`/game/${selectedMode}/${selectedDifficulty}`}>
             <Button
               size="lg"
